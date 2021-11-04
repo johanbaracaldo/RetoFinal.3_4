@@ -39,7 +39,7 @@ public class WebMensaje {
     }
 
     @GetMapping("/{id}")
-    public Optional<Mensaje> getMessage(@PathVariable("id") int messageId) {
+    public Optional<Mensaje> getMessage(@PathVariable("idMessage") int messageId) {
         return servico.getMessage(messageId);
     }
 
@@ -56,7 +56,7 @@ public class WebMensaje {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int messageId) {
+    public boolean delete(@PathVariable("idMessage") int messageId) {
         return servico.deleteMessage(messageId);
     }
     

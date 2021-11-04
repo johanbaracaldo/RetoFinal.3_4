@@ -24,7 +24,7 @@ import javax.persistence.Table;
 public class Categoria implements Serializable {
      @Id
      @GeneratedValue
-     private Integer idCategoria;
+     private Integer id;
      private String name;
      private String description;
      
@@ -32,12 +32,12 @@ public class Categoria implements Serializable {
      @JsonIgnoreProperties("categoria")
      private List<Gymmachine> machine;
 
-    public Integer getIdCategoria() {
-        return idCategoria;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdCategoria(Integer idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -64,10 +64,7 @@ public class Categoria implements Serializable {
         this.machine = machine;
     }
 
-    public Object getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
    
   
      

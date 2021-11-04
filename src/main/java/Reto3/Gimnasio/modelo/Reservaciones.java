@@ -22,34 +22,34 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "reservations")
-public class Reservaciones implements Serializable {
-    @Id
+@Table(name = "reservation")
+public class Reservaciones implements Serializable  {
+    
+     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idReservacion;
+    private Integer idReservation;
     private Date startDate;
     private Date devolutionDate;
     private String status="created";
     
-    
     @ManyToOne
-    @JoinColumn(name="id")
-    @JsonIgnoreProperties({"reservations"})
+    @JoinColumn(name = "id")
+    @JsonIgnoreProperties("reservations")
     private Gymmachine machine;
-    
-    @ManyToOne
-    @JoinColumn(name="idClient")
-    @JsonIgnoreProperties({"message","reservations"})
-    private Cliente client ;
-    
-    private String score;
 
-    public Integer getIdReservacion() {
-        return idReservacion;
+    @ManyToOne
+    @JoinColumn(name = "idClient")
+    @JsonIgnoreProperties({"reservations","messages"})
+    private Cliente client;
+
+    private String score; //depende el grupo
+
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setIdReservacion(Integer idReservacion) {
-        this.idReservacion = idReservacion;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
 
     public Date getStartDate() {
@@ -100,19 +100,6 @@ public class Reservaciones implements Serializable {
         this.score = score;
     }
 
-    public Object getIdReservation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
     
     
 }

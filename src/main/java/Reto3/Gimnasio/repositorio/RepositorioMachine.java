@@ -41,5 +41,9 @@ public class RepositorioMachine {
     public Optional<Gymmachine> getMachine(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public Optional<Gymmachine> getGymmachine(int machineId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

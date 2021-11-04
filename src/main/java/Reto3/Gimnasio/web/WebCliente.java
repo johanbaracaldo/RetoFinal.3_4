@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/Client")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 
-public class WebCliente{
+public class WebCliente {
      @Autowired
     private ServiciosCliente servicio;
   
@@ -40,7 +40,7 @@ public class WebCliente{
     }
 
     @GetMapping("/{id}")
-    public Optional<Cliente> getClient(@PathVariable("id") int clientId) {
+    public Optional<Cliente> getClient(@PathVariable("idClient") int clientId) {
         return servicio.getClient(clientId);
     }
 
@@ -57,7 +57,7 @@ public class WebCliente{
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int clientId) {
+    public boolean delete(@PathVariable("idClient") int clientId) {
         return servicio.deleteClient(clientId);
     }
 }

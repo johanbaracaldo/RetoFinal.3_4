@@ -25,8 +25,8 @@ public class ServiciosMachine {
         return metodosCrud.getAll();
     }
 
-    public Optional<Gymmachine> getMachine(int id) {
-        return metodosCrud.getMachine(id);
+    public Optional<Gymmachine> getMachine(int machineId) {
+        return metodosCrud.getGymmachine(machineId);
     }
 
     public Gymmachine save(Gymmachine machine){
@@ -55,6 +55,8 @@ public class ServiciosMachine {
                 if(machine.getYear()!=null){
                     e.get().setYear(machine.getYear());
                 }
+                if(machine.getDescription()!=null){
+                }
                 if(machine.getCategoria()!=null){
                     e.get().setCategoria(machine.getCategoria());
                 }
@@ -69,8 +71,8 @@ public class ServiciosMachine {
     }
 
 
-    public boolean deleteMachine(int id) {
-        Boolean aBoolean = getMachine(id).map(machine -> {
+    public boolean deleteMachine(int machineId) {
+        Boolean aBoolean = getMachine(machineId).map(machine -> {
             metodosCrud.delete(machine);
             return true;
         }).orElse(false);

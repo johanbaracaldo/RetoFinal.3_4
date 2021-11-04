@@ -33,10 +33,11 @@ public class Gymmachine implements Serializable{
     private String name;
     private String brand;
     private Integer year;
+    private String description;
     
     @ManyToOne
     @JoinColumn(name ="idCategoria")
-    @JsonIgnoreProperties("bike")
+    @JsonIgnoreProperties("machine")
     private Categoria categoria;
     
       @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "machine")
@@ -79,6 +80,14 @@ public class Gymmachine implements Serializable{
         this.year = year;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public Categoria getCategoria() {
         return categoria;
     }
@@ -102,6 +111,8 @@ public class Gymmachine implements Serializable{
     public void setReservations(List<Reservaciones> reservations) {
         this.reservations = reservations;
     }
+
+  
 
     
 

@@ -25,15 +25,15 @@ public class ServiciosCategoria {
         return metodosCrud.getAll();
     }
 
-    public Optional<Categoria> getCategoria(int idCategoria) {
-        return metodosCrud.getCategoria(idCategoria);
+    public Optional<Categoria> getCategoria(int CategoriaId) {
+        return metodosCrud.getCategoria(CategoriaId);
     }
 
     public Categoria save(Categoria categoria) {
         if (categoria.getId()== null) {
             return metodosCrud.save(categoria);
         } else {
-            Optional<Categoria> categoria1 = metodosCrud.getCategoria((int) categoria.getId());
+            Optional<Categoria> categoria1 = metodosCrud.getCategoria(categoria.getId());
             if (categoria1.isEmpty()) {
                 return metodosCrud.save(categoria);
             } else {
@@ -44,7 +44,7 @@ public class ServiciosCategoria {
 
     public Categoria update(Categoria categoria){
         if(categoria.getId()!=null){
-            Optional<Categoria>g=metodosCrud.getCategoria((int) categoria.getId());
+            Optional<Categoria>g=metodosCrud.getCategoria(categoria.getId());
             if(!g.isEmpty()){
                 if(categoria.getDescription()!=null){
                     g.get().setDescription(categoria.getDescription());
@@ -57,8 +57,8 @@ public class ServiciosCategoria {
         }
         return categoria;
     }
-    public boolean deletecategoria(int idCategoria){
-        Boolean d=getCategoria(idCategoria).map(categoria -> {
+    public boolean deletecategoria(int categoriaId){
+        Boolean d=getCategoria(categoriaId).map(categoria -> {
             metodosCrud.delete(categoria);
             return true;
         }).orElse(false);

@@ -24,8 +24,8 @@ public class ServiciosCliente {
         return metodosCrud.getAll();
     }
      
-      public Optional<Cliente> getClient(int idClient) {
-        return metodosCrud.getCliente(idClient);
+      public Optional<Cliente> getClient(int clientId) {
+        return metodosCrud.getCliente(clientId);
     }
 
     public Cliente save(Cliente client){
@@ -64,8 +64,8 @@ public class ServiciosCliente {
         }
     }
 
-    public boolean deleteClient(int idClient) {
-        Boolean aBoolean = getClient(idClient).map(client -> {
+    public boolean deleteClient(int clientId) {
+        Boolean aBoolean = getClient(clientId).map(client -> {
             metodosCrud.delete(client);
             return true;
         }).orElse(false);
