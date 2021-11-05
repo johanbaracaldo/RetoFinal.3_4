@@ -57,8 +57,8 @@ public class ServiciosMachine {
                 if(machine.getDescription()!=null){
                     e.get().setDescription(machine.getDescription());
                 }
-                if(machine.getCategoria()!=null){
-                    e.get().setCategoria(machine.getCategoria());
+                if(machine.getCategory()!=null){
+                    e.get().setCategory(machine.getCategory());
                 }
                 metodosCrud.save(e.get());
                 return e.get();

@@ -23,7 +23,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "message")
 public class Mensaje implements Serializable {
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
     private String messageText;
@@ -69,7 +69,5 @@ public class Mensaje implements Serializable {
     public void setClient(Cliente client) {
         this.client = client;
     }
-    
-    
-    
+
 }

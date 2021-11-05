@@ -22,15 +22,26 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "categoria")
 public class Categoria implements Serializable {
+     /**
+        *definicion de campos id 
+        */
      @Id
      @GeneratedValue
      private Integer id;
+     /**
+        * camponame 
+        */
      private String name;
+     /**
+        * descripcion 
+        */
      private String description;
-     
-     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="categoria")
-     @JsonIgnoreProperties("categoria")
-     private List<Machine> machine;
+     /**
+        *relacion de categoria con maquinas
+        */
+     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="category")
+     @JsonIgnoreProperties("category")
+     private List<Machine> machines;
 
     public Integer getId() {
         return id;
@@ -56,24 +67,11 @@ public class Categoria implements Serializable {
         this.description = description;
     }
 
-    public List<Machine> getMachine() {
-        return machine;
+    public List<Machine> getMachines() {
+        return machines;
     }
 
-    public void setMachine(List<Machine> machine) {
-        this.machine = machine;
+    public void setMachines(List<Machine> machines) {
+        this.machines = machines;
     }
-
-   
-   
-  
-     
-     
-
-    
-     
-     
-     
-     
 }
-
