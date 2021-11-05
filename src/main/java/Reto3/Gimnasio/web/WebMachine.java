@@ -4,8 +4,8 @@
  */
 package Reto3.Gimnasio.web;
 
-import Reto3.Gimnasio.modelo.Gymmachine;
-import Reto3.Gimnasio.modelo.Gymmachine;
+import Reto3.Gimnasio.modelo.Machine;
+import Reto3.Gimnasio.modelo.Machine;
 import Reto3.Gimnasio.servicios.ServiciosMachine;
 import Reto3.Gimnasio.servicios.ServiciosMachine;
 import java.util.List;
@@ -38,29 +38,29 @@ public class WebMachine {
      @Autowired
     private ServiciosMachine servicio;
     @GetMapping("/all")
-    public List<Gymmachine> getMachine(){
+    public List<Machine> getMachine(){
         return servicio.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Gymmachine> getMachine(@PathVariable("id") int id) {
+    public Optional<Machine> getMachine(@PathVariable("id") int id) {
         return servicio.getMachine(id);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Gymmachine save(@RequestBody Gymmachine machine) {
+    public Machine save(@RequestBody Machine machine) {
         return servicio.save(machine);
     }
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Gymmachine update(@RequestBody Gymmachine machine) {
+    public Machine update(@RequestBody Machine machine) {
         return servicio.update(machine);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int id) {
-        return servicio.deleteMachine(id);
+    public boolean delete(@PathVariable("id") int machineId) {
+        return servicio.deleteMachine(machineId);
     } 
 }

@@ -4,7 +4,7 @@
  */
 package Reto3.Gimnasio.servicios;
 
-import Reto3.Gimnasio.modelo.Gymmachine;
+import Reto3.Gimnasio.modelo.Machine;
 import Reto3.Gimnasio.repositorio.RepositorioMachine;
 import java.util.List;
 import java.util.Optional;
@@ -18,33 +18,32 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ServiciosMachine {
-     @Autowired
+        @Autowired
     private RepositorioMachine metodosCrud;
-
-    public List<Gymmachine> getAll(){
+    
+    public List<Machine> getAll(){
         return metodosCrud.getAll();
     }
-
-    public Optional<Gymmachine> getMachine(int machineId) {
-        return metodosCrud.getGymmachine(machineId);
+    
+    public Optional<Machine> getFinca(int idMachine){
+        return metodosCrud.getMachine(idMachine);
     }
-
-    public Gymmachine save(Gymmachine machine){
+    
+    public Machine save(Machine machine){
         if(machine.getId()==null){
             return metodosCrud.save(machine);
         }else{
-            Optional<Gymmachine> e=metodosCrud.getMachine(machine.getId());
-            if(e.isEmpty()){
+            Optional<Machine> evt=metodosCrud.getMachine(machine.getId());
+            if(evt.isEmpty()){
                 return metodosCrud.save(machine);
             }else{
                 return machine;
             }
         }
     }
-
-    public Gymmachine update(Gymmachine machine){
+    public Machine update(Machine machine){
         if(machine.getId()!=null){
-            Optional<Gymmachine> e=metodosCrud.getBike(machine.getId());
+            Optional<Machine> e=metodosCrud.getMachine(machine.getId());
             if(!e.isEmpty()){
                 if(machine.getName()!=null){
                     e.get().setName(machine.getName());
@@ -56,6 +55,7 @@ public class ServiciosMachine {
                     e.get().setYear(machine.getYear());
                 }
                 if(machine.getDescription()!=null){
+                    e.get().setDescription(machine.getDescription());
                 }
                 if(machine.getCategoria()!=null){
                     e.get().setCategoria(machine.getCategoria());
@@ -72,10 +72,16 @@ public class ServiciosMachine {
 
 
     public boolean deleteMachine(int machineId) {
-        Boolean aBoolean = getMachine(machineId).map(machine -> {
+        Boolean aBoolean = getFinca(machineId).map(machine -> {
             metodosCrud.delete(machine);
             return true;
         }).orElse(false);
         return aBoolean;
     }
+
+    public Optional<Machine> getMachine(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 }

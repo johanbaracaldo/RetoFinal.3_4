@@ -4,7 +4,7 @@
  */
 package Reto3.Gimnasio.repositorio;
 
-import Reto3.Gimnasio.modelo.Gymmachine;
+import Reto3.Gimnasio.modelo.Machine;
 import Reto3.Gimnasio.interfac.InterfaceMachine;
 import java.util.List;
 import java.util.Optional;
@@ -19,31 +19,25 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class RepositorioMachine {
-    
-    @Autowired
+      @Autowired
     private InterfaceMachine crud;
+    
 
-    public List<Gymmachine> getAll(){
-        return (List<Gymmachine>) crud.findAll();
+    public List<Machine> getAll(){
+        return (List<Machine>) crud.findAll();       
     }
-
-    public Optional<Gymmachine> getBike(int id){
-        return crud.findById(id);
+    
+    public Optional <Machine> getMachine(int idMachine){
+        return crud.findById(idMachine);
     }
-
-    public Gymmachine save(Gymmachine machine){
+    
+    public Machine save(Machine machine){
         return crud.save(machine);
     }
-    public void delete(Gymmachine machine){
+     public void delete(Machine machine){
         crud.delete(machine);
     }
 
-    public Optional<Gymmachine> getMachine(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Optional<Gymmachine> getGymmachine(int machineId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
     
 }

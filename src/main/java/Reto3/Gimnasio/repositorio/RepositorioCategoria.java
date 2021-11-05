@@ -32,7 +32,7 @@ public class RepositorioCategoria {
     public Categoria save(Categoria categoria ){
         return crud.save(categoria);
     }
-    public void delete(Categoria Categoria){
-       crud.delete(Categoria);
+    public void delete(Categoria categoria){
+       crud.delete(categoria);
     }
 }

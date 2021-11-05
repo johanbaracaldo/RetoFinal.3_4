@@ -4,13 +4,13 @@
  */
 package Reto3.Gimnasio.interfac;
 
-import Reto3.Gimnasio.modelo.Gymmachine;
+import Reto3.Gimnasio.modelo.Machine;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author johan
  */
-public interface InterfaceMachine extends CrudRepository<Gymmachine, Integer> {
+public interface InterfaceMachine extends CrudRepository<Machine, Integer> {
     
 }

@@ -54,7 +54,7 @@ public class WebMensaje {
         return servico.update(message);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{idMesage}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("idMessage") int messageId) {
         return servico.deleteMessage(messageId);

@@ -52,9 +52,10 @@ public class WebReservaciones {
     public Reservaciones update(@RequestBody Reservaciones reservation) {
         return servicio.update(reservation);
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{idReservation}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int reservationId) {
         return servicio.deleteReservation(reservationId);
     }
+    
 }

@@ -35,7 +35,7 @@ public class Reservaciones implements Serializable  {
     @ManyToOne
     @JoinColumn(name = "id")
     @JsonIgnoreProperties("reservations")
-    private Gymmachine machine;
+    private Machine machine;
 
     @ManyToOne
     @JoinColumn(name = "idClient")
@@ -76,11 +76,11 @@ public class Reservaciones implements Serializable  {
         this.status = status;
     }
 
-    public Gymmachine getMachine() {
+    public Machine getMachine() {
         return machine;
     }
 
-    public void setMachine(Gymmachine machine) {
+    public void setMachine(Machine machine) {
         this.machine = machine;
     }
 

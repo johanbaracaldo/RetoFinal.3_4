@@ -30,7 +30,7 @@ public class RepositorioCliente {
     public Cliente save(Cliente cliente){
         return crud1.save(cliente);
     }
-    public void delete(Cliente cliente){
-        crud1.delete(cliente);
+    public void delete(Cliente Cliente){
+        crud1.delete(Cliente);
     }
 }
