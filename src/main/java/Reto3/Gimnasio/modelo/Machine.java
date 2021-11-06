@@ -36,8 +36,8 @@ public class Machine implements Serializable{
     private String description;
     
     @ManyToOne
-    @JoinColumn(name ="idCategoria")
-    @JsonIgnoreProperties("machine")
+    @JoinColumn(name ="category")
+    @JsonIgnoreProperties("machines")
     private Categoria category;
     
       @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "machine")
@@ -45,7 +45,7 @@ public class Machine implements Serializable{
     private List<Mensaje> messages;
       
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "machine")
-    @JsonIgnoreProperties({"machine", "client"})
+    @JsonIgnoreProperties({"machine", "messages"})
     private List<Reservaciones> reservations;
 
     public Integer getId() {
@@ -110,5 +110,10 @@ public class Machine implements Serializable{
 
     public void setReservations(List<Reservaciones> reservations) {
         this.reservations = reservations;
-    }    
+    }
+    
+    
+    
+   
+   
 }
