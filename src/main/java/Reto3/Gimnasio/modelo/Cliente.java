@@ -37,7 +37,7 @@ public class Cliente implements Serializable {
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="client")
     @JsonIgnoreProperties("client")
-    public List<Mensaje>message;
+    public List<Mensaje>messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="client")
     @JsonIgnoreProperties("client")
@@ -83,12 +83,12 @@ public class Cliente implements Serializable {
         this.age = age;
     }
 
-    public List<Mensaje> getMessage() {
-        return message;
+    public List<Mensaje> getMessages() {
+        return messages;
     }
 
-    public void setMessage(List<Mensaje> message) {
-        this.message = message;
+    public void setMessages(List<Mensaje> messages) {
+        this.messages = messages;
     }
 
     public List<Reservaciones> getReservations() {

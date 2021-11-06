@@ -35,7 +35,7 @@ public class Mensaje implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="clientId")
-    @JsonIgnoreProperties({"message","client"})
+    @JsonIgnoreProperties({"message","reservations"})
     private Cliente client;
 
     public Integer getIdMessage() {
