@@ -7,12 +7,14 @@ package Reto3.Gimnasio.modelo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -33,16 +35,19 @@ public class Reservaciones implements Serializable  {
     private String status="created";
     
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "costumeId")
     @JsonIgnoreProperties("reservations")
     private Machine machine;
 
+    //idClient es igual a clientId
     @ManyToOne
-    @JoinColumn(name = "idClient")
+    @JoinColumn(name = "clientId")
     @JsonIgnoreProperties({"reservations","messages"})
     private Cliente client;
 
-    private String score; //depende el grupo
+    @OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservation")
+    @JsonIgnoreProperties("reservation")
+    private Score score;
 
     public Integer getIdReservation() {
         return idReservation;
@@ -92,13 +97,14 @@ public class Reservaciones implements Serializable  {
         this.client = client;
     }
 
-    public String getScore() {
+    public Score getScore() {
         return score;
     }
 
-    public void setScore(String score) {
+    public void setScore(Score score) {
         this.score = score;
     }
+   
 
     
     

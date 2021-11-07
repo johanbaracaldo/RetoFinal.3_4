@@ -4,8 +4,11 @@
  */
 package Reto3.Gimnasio.web;
 
+import Reto3.Gimnasio.custom.CountClient;
+import Reto3.Gimnasio.custom.StatusReservation;
 import Reto3.Gimnasio.modelo.Reservaciones;
 import Reto3.Gimnasio.servicios.ServiciosReservaciones;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,4 +61,21 @@ public class WebReservaciones {
         return servicio.deleteReservation(reservationId);
     }
     
+    @GetMapping("/report-status")
+    public StatusReservation getReservas(){
+        return servicio.reporteStatusServicio();
+    }
+    
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+     public List<Reservaciones> getReservasTiempo (@PathVariable("dateOne")String dateOne, @PathVariable("dateTwo")String dateTwo ) throws ParseException{
+         return servicio.reporteTiempoServicio(dateOne, dateTwo);
+     }
+     
+     @GetMapping("/report-clients")
+     public List<CountClient> getClientes(){
+         return servicio.reporteClientesServicio();
+     }
+
+    
 }
+    
